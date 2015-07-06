@@ -5,7 +5,7 @@ Simple jQuery plugin to rotate text
 ```html
 <html>
 	<head>
-		<script type="text/javascript" src="jquery.textrotator.js">
+		<script type="text/javascript" src="jquery.textrotator.js" />
 	</head>
 	<style>
 		#my-textrotator {list-style: none; padding:0; margin: 0 0 24px;}
