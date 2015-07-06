@@ -9,17 +9,13 @@
             onFoo: function() {}
 
         }
-
         var plugin = this;
         plugin.settings = {}
 		plugin.globals = {
 			child_select : 1,
 			$child_select : null
 		}
-
         var $element = $(element), element = element;    /* reference to the actual DOM element*/
-		
-
         // the "constructor" method that gets called when the object is created
         plugin.init = function() {
             plugin.settings = $.extend({}, defaults, options);
@@ -54,16 +50,12 @@
 					}				
 				});		 			
 		}
-
-
-
         var _debug = function(title,msg) {
 			if (plugin.settings.debug){
             	console.log(new Date(),title+  ' : ',msg);
 			}
         }
         plugin.init();
-
     }
 
     // add the plugin to the jQuery.fn object
