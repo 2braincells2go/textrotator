@@ -4,9 +4,7 @@
 			random : true,
 			fadeIn : 1000,
 			fadeOut : 500,
-			duration : 5000,
-           	debug : false,
-            onFoo: function() {}
+			duration : 5000  
 
         }
         var plugin = this;
@@ -36,28 +34,22 @@
 				});		 
 		}		
 		plugin._fadeOut = function() {				
-				plugin.globals.$child_select.delay(plugin.settings.duration).fadeOut({
-					duration : plugin.settings.fadeOut,
-					easing: 'swing',
-					complete: function () {
-						if  (plugin.globals.$child_select.next('li').text().length > 0){
-							plugin.globals.$child_select = plugin.globals.$child_select.next('li');							
-						}
-						else {
-							plugin.globals.$child_select = $element.find('li:first');
-						}
-						plugin._fadeIn();						
-					}				
-				});		 			
+			plugin.globals.$child_select.delay(plugin.settings.duration).fadeOut({
+				duration : plugin.settings.fadeOut,
+				easing: 'swing',
+				complete: function () {
+					if  (plugin.globals.$child_select.is('li:last')){
+						plugin.globals.$child_select = $element.find('li:first');													
+					}
+					else {
+						plugin.globals.$child_select = plugin.globals.$child_select.next('li');								
+					}
+					plugin._fadeIn();						
+				}				
+			});		 			
 		}
-        var _debug = function(title,msg) {
-			if (plugin.settings.debug){
-            	console.log(new Date(),title+  ' : ',msg);
-			}
-        }
         plugin.init();
     }
-
     // add the plugin to the jQuery.fn object
     $.fn.textRotator = function(options) {
         // iterate through the DOM elements we are attaching the plugin to
