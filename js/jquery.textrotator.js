@@ -29,7 +29,12 @@
 			plugin.globals.$child_select.fadeIn({
 					duration : plugin.settings.fadeIn,
 					easing: 'swing',
-					complete: function () { plugin._fadeOut()}
+					complete: function () {
+						if ($element.find('li').length > 1) {							
+							plugin._fadeOut();
+						}
+						
+					}
 				
 				});		 
 		}		
